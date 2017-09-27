@@ -36,14 +36,27 @@ func greet(name: String) {
 //:
 //: Hint: put your name, wrapped in quotes, between the parentheses `()`.
 
-
+greet(name: "Joshua")
 
 
 //: ### Challenge 2
 //:
 //: Now take the code your wrote in the last playground to print out a grammatical description of our bicycleCount, and write a function that takes in an Int representing how many bicycles we have, and prints out a description of how many bicycles we have. You can call the function `pluralize`.
 
+func pluralize(_ bicycleCount: Int) {
+    
+    if bicycleCount == 0 {
+        print("There are zero bicycles")
+    } else if bicycleCount == 1 {
+        print("There is one bicycle")
+    } else {
+        print("There are \(bicycleCount) bicycles")
+    }
+}
 
+pluralize(1)
+pluralize(0)
+pluralize(100)
 
 
 // Test it by uncommenting these lines:
@@ -68,9 +81,24 @@ var result = increment(input: 10)
 //:
 //: Using the `increment` function as an example, re-write the `pluralize` function (call it `pluralizedString`) so it returns a String instead of printing.
 
+func pluralizedString(_ bicycleCount: Int) -> String{
+    
+    var sentence: String
+    
+    if bicycleCount == 0 {
+        sentence = "There are zero bicycles"
+    } else if bicycleCount == 1 {
+        sentence = "There is one bicycle"
+    } else {
+        sentence = "There are \(bicycleCount) bicycles"
+    }
+    
+    return sentence
+}
 
-
-
+var str1 = pluralizedString(1)
+var str2 = pluralizedString(0)
+var str3 = pluralizedString(100)
 
 // Test it by uncommenting the lines below:
 
@@ -95,10 +123,22 @@ var result = increment(input: 10)
 //: 3) a count of how many (e.g. 100)
 //:
 
+func pluralizedWord(_ singular: String ,pluralNoun: String ,count: Int) -> String {
+    
+    var word: String
+    
+    if count > 1 {
+        word = pluralNoun
+    } else {
+        word = singular
+    }
+    
+    return word
+}
 
-
-
-
+pluralizedWord("octopus", pluralNoun: "octopi", count: 1)
+pluralizedWord("woman", pluralNoun: "women", count: 2)
+pluralizedWord("apple", pluralNoun: "apples", count: 0)
 
 // Test your function by uncommenting:
 
